@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "notebook-pipeline-converter"
+version = "0.1.0"
+description = "A utility that helps convert exploratory notebooks into repeatable, testable batch pipelines."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Ignazio De Santis" }
+]
+dependencies = []
+
+[project.scripts]
+notebook-pipeline-converter = "notebook_pipeline_converter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+notebook_pipeline_converter = ["project.json"]

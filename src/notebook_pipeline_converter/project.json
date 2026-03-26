@@ -1,0 +1,23 @@
+{
+  "slug": "notebook-pipeline-converter",
+  "name": "Notebook Pipeline Converter",
+  "category": "Data Tool",
+  "track": "Developer Tool",
+  "stage": "Researching",
+  "summary": "A utility that helps convert exploratory notebooks into repeatable, testable batch pipelines.",
+  "problem": "Important data logic often gets trapped in notebooks that are hard to review, schedule, or maintain.",
+  "users": "Data scientists, analytics engineers, ML teams",
+  "stack": [
+    "Python",
+    "nbformat",
+    "Jinja",
+    "CLI"
+  ],
+  "why_now": "The gap between experimentation and production remains a recurring bottleneck in data work.",
+  "mvp": [
+    "Analyze notebook structure",
+    "Extract cells into modules and steps",
+    "Generate a runnable pipeline entrypoint",
+    "Create a starter test suite"
+  ]
+}
