@@ -2,7 +2,7 @@
 
 ## Product Shape
 
-Notebook Pipeline Converter starts as a focused Python service or CLI with a clean domain boundary. The local interface is intentionally small so the core logic can evolve into an API, worker, or scheduled job without rework.
+Notebook Pipeline Converter now has a real local boundary: notebook inspection, narrow-path code extraction, and generated pipeline scaffolds with a contract test. The interface is still intentionally small so the core logic can evolve into an API, worker, or scheduled job without rework.
 
 ## Design Priorities
 
@@ -15,4 +15,5 @@ Notebook Pipeline Converter starts as a focused Python service or CLI with a cle
 
 - `models.py` defines the typed project metadata.
 - `catalog.py` loads the shipped product spec.
-- `cli.py` exposes summary, capabilities, and roadmap commands.
+- `cli.py` exposes summary, inspect, convert, capabilities, and roadmap commands.
+- `converter.py` parses notebook JSON, extracts functions/constants, and renders generated pipeline files.

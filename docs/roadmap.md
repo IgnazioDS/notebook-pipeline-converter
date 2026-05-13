@@ -6,6 +6,7 @@
 - Extract cells into modules and steps
 - Generate a runnable pipeline entrypoint
 - Create a starter test suite
+- Ship a narrow churn-model conversion demo
 
 ## Phase 2
 

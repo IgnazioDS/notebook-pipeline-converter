@@ -1,6 +1,6 @@
 # Notebook Pipeline Converter
 
-Python utility scaffold for turning exploratory Jupyter notebooks into modular, repeatable, and testable batch pipelines.
+Python utility for turning exploratory Jupyter notebooks into modular, repeatable, and testable batch pipelines.
 
 ## What It Does
 
@@ -19,17 +19,17 @@ Notebooks are excellent for exploration and weak as long-term production assets.
 
 ## What Ships Today
 
-This repository currently ships a showcase-state implementation:
+This repository now ships a real narrow conversion path:
 
-- A Python CLI scaffold in `src/notebook_pipeline_converter/`
-- Typed project metadata in `project.json`
-- Architecture and roadmap notes in `docs/`
-- Baseline regression coverage in `tests/`
-- A Vercel-ready landing page (`index.html`, `styles.css`) for demos and portfolio visibility
+- `inspect` reads a notebook and reports cells, detected functions, constants, and pipeline order
+- `convert` turns the bundled churn example into `config.py`, `steps.py`, `pipeline.py`, and `tests/test_pipeline_contract.py`
+- Example notebook input lives in `examples/churn_model.ipynb`
+- Baseline regression coverage verifies both the CLI and the generated pipeline contract
 
 ## Repository Layout
 
 - `src/notebook_pipeline_converter/`: CLI entrypoint, models, and catalog metadata
+- `examples/`: bundled notebook conversion demo
 - `docs/`: roadmap and architecture notes
 - `tests/`: baseline contract tests
 - `index.html` and `styles.css`: static project site
@@ -42,13 +42,14 @@ cd notebook-pipeline-converter
 uv sync
 
 uv run notebook-pipeline-converter summary
-uv run notebook-pipeline-converter capabilities
-uv run notebook-pipeline-converter roadmap
+uv run notebook-pipeline-converter inspect examples/churn_model.ipynb
+uv run notebook-pipeline-converter convert examples/churn_model.ipynb --out generated/churn_pipeline
+uv run python -m unittest generated/churn_pipeline/tests/test_pipeline_contract.py
 ```
 
-## Planned Stack Direction
+## Current Stack Direction
 
-Python, nbformat, Jinja, CLI tooling, data-pipeline generation
+Python, notebook JSON parsing, CLI tooling, generated pipeline scaffolds
 
 ## Showcase Site
 
