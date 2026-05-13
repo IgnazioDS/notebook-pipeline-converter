@@ -1,59 +1,63 @@
 # Notebook Pipeline Converter
 
-A utility that helps convert exploratory notebooks into repeatable, testable batch pipelines.
+Python utility scaffold for turning exploratory Jupyter notebooks into modular, repeatable, and testable batch pipelines.
 
-## Problem
+## What It Does
 
-Important data logic often gets trapped in notebooks that are hard to review, schedule, or maintain.
+`notebook-pipeline-converter` is aimed at data teams that prototype in notebooks but need to graduate working logic into code that can be reviewed, scheduled, and tested like a normal software artifact.
 
-## Users
+Core outcomes:
 
-Data scientists, analytics engineers, ML teams
+- Inspect notebook structure and execution flow
+- Extract cells into reusable modules and pipeline steps
+- Generate a runnable batch entrypoint
+- Produce starter tests around the converted pipeline contract
 
-## Core Capabilities
+## Why It Exists
 
-- Analyze notebook structure
-- Extract cells into modules and steps
-- Generate a runnable pipeline entrypoint
-- Create a starter test suite
+Notebooks are excellent for exploration and weak as long-term production assets. The moment a notebook becomes a dependency for scheduled work, onboarding, or regulated reporting, teams need an explicit conversion path into maintainable Python modules and pipeline entrypoints.
 
-## Why This Matters
+## What Ships Today
 
-The gap between experimentation and production remains a recurring bottleneck in data work.
+This repository currently ships a showcase-state implementation:
 
-## Architecture
+- A Python CLI scaffold in `src/notebook_pipeline_converter/`
+- Typed project metadata in `project.json`
+- Architecture and roadmap notes in `docs/`
+- Baseline regression coverage in `tests/`
+- A Vercel-ready landing page (`index.html`, `styles.css`) for demos and portfolio visibility
 
-- `core`: domain logic for notebook pipeline converter.
-- `cli`: operator-facing entrypoint for local workflows and smoke checks.
-- `docs/`: product notes, roadmap, and architecture decisions.
-- `tests/`: baseline regression coverage for the project contract.
+## Repository Layout
 
-## Local Usage
+- `src/notebook_pipeline_converter/`: CLI entrypoint, models, and catalog metadata
+- `docs/`: roadmap and architecture notes
+- `tests/`: baseline contract tests
+- `index.html` and `styles.css`: static project site
+
+## Quickstart
 
 ```bash
+git clone https://github.com/IgnazioDS/notebook-pipeline-converter.git
+cd notebook-pipeline-converter
+uv sync
+
 uv run notebook-pipeline-converter summary
 uv run notebook-pipeline-converter capabilities
 uv run notebook-pipeline-converter roadmap
 ```
 
-## Initial Stack Direction
+## Planned Stack Direction
 
-Python, nbformat, Jinja, CLI
+Python, nbformat, Jinja, CLI tooling, data-pipeline generation
 
-## Delivery Standard
+## Showcase Site
 
-- Clear product thesis
-- Setup that works locally
-- Tests for the primary contract
-- Documentation for roadmap and architecture
-- Space for production integrations in the next iteration
-
-## Showcase
-
-This repository ships with a static Vercel-ready landing page for demos and previews.
+The repository includes a static landing page for lightweight demos and public previews.
 
 ```bash
 vercel deploy -y
 ```
 
-The deployed site presents Notebook Pipeline Converter as a standalone product page.
+## License
+
+MIT — see [LICENSE](./LICENSE).
